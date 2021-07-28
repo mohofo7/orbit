@@ -1,7 +1,8 @@
 // @flow
 import * as React from "react";
 
-import type { Context, ProviderProps } from "./context";
+import type { Context } from "./context";
+import typeof { ItineraryProvider as ItineraryProviderType } from "./context";
 
 export const ItineraryContext: React.Context<Context> = React.createContext({
   setWidths: () => {},
@@ -9,7 +10,7 @@ export const ItineraryContext: React.Context<Context> = React.createContext({
   calculatedWidth: 0,
 });
 
-export const ItineraryProvider = ({ children }: ProviderProps): React.Node => {
+export const ItineraryProvider: ItineraryProviderType = ({ children }): React.Node => {
   const [widths, setWidths] = React.useState([]);
   const [calculatedWidth, setCalculatedWidth] = React.useState(0);
 

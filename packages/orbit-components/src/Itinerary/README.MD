@@ -75,16 +75,16 @@ ItinerarySegmentStop is an atomic unit of the Itinerary component, shows two loc
 
 ## ItineraryStatus
 
-ItineraryStatus is a wrapper for `ItinerarySegment` or group of segments. Shows the [status`](#statuses) of the `Itinerary` or `ItinerarySegment`
+ItineraryStatus is a wrapper for `ItinerarySegment` or group of segments. Shows the [status](#status) of the `Itinerary` or `ItinerarySegment`
 
 ### Props
 
-| Name     | Type                    | Required           | Default | Description                                |
-| -------- | ----------------------- | ------------------ | ------- | ------------------------------------------ |
-| type     | [`Statuses`](#statuses) |                    |         | The type of `ItineraryStatus` component    |
-| label    | `React.Node`            |                    |         | The label of the `ItineraryStatus`         |
-| offset   | `number`                |                    |         | The offset for the label                   |
-| children | `React.ReactNode`       | :heavy_check_mark: |         | The content of `ItineraryStatus` component |
+| Name     | Type                | Required           | Default | Description                                |
+| -------- | ------------------- | ------------------ | ------- | ------------------------------------------ |
+| type     | [`Status`](#status) |                    |         | The type of `ItineraryStatus` component    |
+| label    | `React.Node`        |                    |         | The label of the `ItineraryStatus`         |
+| offset   | `number`            |                    |         | The offset for the label                   |
+| children | `React.ReactNode`   | :heavy_check_mark: |         | The content of `ItineraryStatus` component |
 
 ## ItinerarySegmentDetail
 
@@ -99,9 +99,9 @@ ItinerarySegmentDetail serves as connection between two ItinerarySegmentStop com
 | children | `React.ReactNode` | :heavy_check_mark: |              | The content of ItineraryDetail component, shown when it's expanded |
 | icon     | `React.ReactNode` |                    | <Airplane /> | The icon of ItineraryDetail component                              |
 
-### Statuses
+### Status
 
-| Statuses     |
+| Status       |
 | ------------ |
 | `"warning"`  |
 | `"critical"` |

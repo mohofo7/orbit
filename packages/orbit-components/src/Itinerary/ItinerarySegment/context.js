@@ -1,41 +1,28 @@
 // @flow
 import * as React from "react";
 
-import type { Context, ProviderProps } from "./context";
+import type { Context } from "./context";
+import typeof { ItinerarySegmentProvider as ItinerarySegmentProviderType } from "./context";
 
 export const ItinerarySegmentContext: React.Context<Context> = React.createContext({
   isNextHidden: false,
   isHidden: false,
   noElevation: false,
   opened: false,
-  setOpened: () => {},
+  toggleOpened: () => {},
   index: 0,
   count: 0,
   last: false,
 });
 
-export const ItinerarySegmentProvider = ({
+export const ItinerarySegmentProvider: ItinerarySegmentProviderType = ({
   children,
-  index,
-  last,
-  count,
-  opened,
-  setOpened,
-  isNextHidden,
-  isHidden,
-  noElevation,
-}: ProviderProps): React.Node => {
+  ...ctx
+}): React.Node => {
   return (
     <ItinerarySegmentContext.Provider
       value={{
-        index,
-        last,
-        noElevation,
-        isNextHidden,
-        isHidden,
-        opened,
-        setOpened,
-        count,
+        ...ctx,
       }}
     >
       {children}

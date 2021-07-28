@@ -3,12 +3,12 @@ import * as React from "react";
 
 import type { spaceAfter } from "../../common/getSpacingToken";
 
-export type Statuses = "warning" | "critical" | "info" | "success";
+export type Status = "warning" | "critical" | "info" | "success";
 
 export type Props = {|
   +label?: React.Node,
   +offset?: number,
-  +type: Statuses,
+  +type: Status,
   +children: React.Node,
   ...spaceAfter,
 |};

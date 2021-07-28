@@ -38,17 +38,18 @@ const ItinerarySegment = ({
 }: Props): React.Node => {
   const content = React.Children.toArray(children);
   const [opened, setOpened] = React.useState(false);
-  const parts = content && content.length > 0 && (
+
+  const parts = (
     <Stack direction="column">
-      {React.Children.map(content, (el, i) => {
+      {React.Children.map(children, (el, i) => {
         return (
           <ItinerarySegmentProvider
             index={i}
             opened={opened}
-            setOpened={() => setOpened(!opened)}
-            last={i === content.length - 1}
+            toggleOpened={() => setOpened(prev => !prev)}
+            last={i === React.Children.count(children) - 1}
             isNextHidden={content[i + 1] && content[i + 1].props.hidden}
-            count={content.length}
+            count={React.Children.count(children)}
             isHidden={el.props.hidden}
             noElevation={!!noElevation}
           >
@@ -61,7 +62,7 @@ const ItinerarySegment = ({
 
   const handleClick = (ev: SyntheticEvent<HTMLDivElement>) => {
     if (onClick) onClick(ev);
-    setOpened(!opened);
+    setOpened(prev => !prev);
   };
 
   return (
@@ -69,7 +70,12 @@ const ItinerarySegment = ({
       spaceAfter={spaceAfter}
       data-test={dataTest}
       tabIndex={0}
-      onKeyDown={ev => handleKeyDown(ev, setOpened(!opened))}
+      onKeyDown={ev =>
+        handleKeyDown(
+          ev,
+          setOpened(prev => !prev),
+        )
+      }
       onClick={handleClick}
       noElevation={noElevation}
     >

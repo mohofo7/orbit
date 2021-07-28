@@ -223,7 +223,7 @@ declare export var Itinerary: ItineraryType;
 declare export var ItineraryStatus: ItineraryStatusType;
 declare export var ItineraryBadgeList: ItineraryBadgeListType;
 declare export var ItinerarySegment: ItinerarySegmentType;
-declare export var ItinerarySegmentPlace: ItinerarySegmentStopType;
+declare export var ItinerarySegmentStop: ItinerarySegmentStopType;
 declare export var ItinerarySegmentDetail: ItinerarySegmentDetailType;
 declare export var Loading: LoadingType;
 declare export var Text: TextType;

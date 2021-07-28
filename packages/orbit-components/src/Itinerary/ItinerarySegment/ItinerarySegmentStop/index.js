@@ -39,10 +39,10 @@ const ItinerarySegmentStop = ({
   warning,
 }: Props): React.Node => {
   const { calculatedWidth, setWidths } = useWidth();
-  const ref: {| current: any | HTMLDivElement |} = React.useRef(null);
+  const ref = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
-    if (ref.current) setWidths(prev => [...prev, ref.current.clientWidth]);
+    if (ref.current) setWidths(prev => (ref.current ? [...prev, ref.current.clientWidth] : prev));
   }, [ref, setWidths]);
 
   return (
@@ -67,7 +67,5 @@ const ItinerarySegmentStop = ({
     </StyledWrapper>
   );
 };
-
-ItinerarySegmentStop.displayName = "ItinerarySegmentStop";
 
 export default ItinerarySegmentStop;

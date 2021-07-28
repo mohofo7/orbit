@@ -104,12 +104,11 @@ StyledExpandableContent.defaultProps = {
 };
 
 const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.Node => {
-  const { opened, setOpened, noElevation } = usePart();
+  const { opened, toggleOpened, noElevation } = usePart();
   const { calculatedWidth } = useWidth();
   const [{ height }, ref] = useBoundingRect({ height: 0 });
 
   const slideID = React.useMemo(() => randomID("slideID"), []);
-  const labelID = React.useMemo(() => randomID("labelID"), []);
 
   return (
     <>
@@ -126,22 +125,24 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
             {opened ? <ChevronUp /> : <ChevronDown />}
           </Stack>
         </StyledInnerWrapper>
-        <Slide maxHeight={height} expanded={opened} id={slideID} ariaLabelledBy={labelID}>
-          <StyledExpandable ref={ref} onClick={setOpened}>
+        <Slide maxHeight={height} expanded={opened} id={slideID} ariaLabelledBy={slideID}>
+          <StyledExpandable ref={ref} onClick={toggleOpened}>
             <StyledExpandableContent offset={calculatedWidth}>
               {content &&
-                content.map(({ heading, items }) => {
+                content.map(({ heading, items }, idx) => {
                   return (
-                    <>
+                    // eslint-disable-next-line react/no-array-index-key
+                    <React.Fragment key={idx}>
                       <StyledHeadingOffset>
                         <Text weight="bold" spaceAfter="medium">
                           {heading}
                         </Text>
                       </StyledHeadingOffset>
                       <Stack direction="column" spacing="XSmall" spaceAfter="medium">
-                        {items.map(({ icon, text, additional }) => {
+                        {items.map(({ icon, text, additional }, index) => {
                           return (
-                            <Stack flex grow={false} align="center">
+                            // eslint-disable-next-line react/no-array-index-key
+                            <Stack flex grow={false} align="center" key={index}>
                               <StyledIcon>{icon}</StyledIcon>
                               <Stack inline justify="between">
                                 <Text>{text}</Text>
@@ -151,7 +152,7 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
                           );
                         })}
                       </Stack>
-                    </>
+                    </React.Fragment>
                   );
                 })}
             </StyledExpandableContent>

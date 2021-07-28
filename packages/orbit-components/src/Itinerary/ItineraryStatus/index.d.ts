@@ -2,11 +2,11 @@ import React from "react";
 
 import Common from "../../common/common";
 
-export type Statuses = "warning" | "critical" | "info" | "success";
+export type Status = "warning" | "critical" | "info" | "success";
 
 export interface Props extends Common.SpaceAfter {
   /** Type of the status  */
-  readonly type: Statuses;
+  readonly type: Status;
   /** Label of the status */
   readonly label?: React.ReactNode;
   /** Offset for the label text */

@@ -11,24 +11,24 @@ import Text from "../../Text";
 import Stack from "../../Stack";
 import defaultTheme from "../../defaultTheme";
 import type { ThemeProps } from "../../defaultTheme";
-import { STATUSES } from "./consts";
+import { STATUS } from "./consts";
 import getSpacingToken from "../../common/getSpacingToken";
 
-import type { Statuses, Props } from ".";
+import type { Status, Props } from ".";
 
-const resolveColor = (status: Statuses, isHeader?: boolean) => ({ theme }: ThemeProps) => {
+const resolveColor = (status: Status, isHeader?: boolean) => ({ theme }: ThemeProps) => {
   const border = {
-    [STATUSES.WARNING]: theme.orbit.colorTextWarning,
-    [STATUSES.CRITICAL]: theme.orbit.colorTextCritical,
-    [STATUSES.INFO]: theme.orbit.colorTextInfo,
-    [STATUSES.SUCCESS]: theme.orbit.colorTextSuccess,
+    [STATUS.WARNING]: theme.orbit.colorTextWarning,
+    [STATUS.CRITICAL]: theme.orbit.colorTextCritical,
+    [STATUS.INFO]: theme.orbit.colorTextInfo,
+    [STATUS.SUCCESS]: theme.orbit.colorTextSuccess,
   };
 
   const header = {
-    [STATUSES.WARNING]: theme.orbit.paletteOrangeLight,
-    [STATUSES.INFO]: theme.orbit.paletteBlueLight,
-    [STATUSES.CRITICAL]: theme.orbit.paletteRedLight,
-    [STATUSES.SUCCESS]: theme.orbit.paletteGreenLight,
+    [STATUS.WARNING]: theme.orbit.paletteOrangeLight,
+    [STATUS.INFO]: theme.orbit.paletteBlueLight,
+    [STATUS.CRITICAL]: theme.orbit.paletteRedLight,
+    [STATUS.SUCCESS]: theme.orbit.paletteGreenLight,
   };
 
   if (isHeader) return header[status];
@@ -81,7 +81,7 @@ StyledStatusText.defaultProps = {
   theme: defaultTheme,
 };
 
-const StatusIcon = ({ type }: {| type: Statuses |}) => {
+const StatusIcon = ({ type }: {| type: Status |}) => {
   switch (type) {
     case "info":
       return <Info size="small" color={type} />;
