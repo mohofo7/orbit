@@ -70,12 +70,7 @@ const ItinerarySegment = ({
       spaceAfter={spaceAfter}
       data-test={dataTest}
       tabIndex={0}
-      onKeyDown={ev =>
-        handleKeyDown(
-          ev,
-          setOpened(prev => !prev),
-        )
-      }
+      onKeyDown={handleKeyDown(() => setOpened(prev => !prev))}
       onClick={handleClick}
       noElevation={noElevation}
     >
