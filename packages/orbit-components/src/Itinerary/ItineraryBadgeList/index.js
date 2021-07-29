@@ -23,7 +23,7 @@ StyledWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const ItineraryBadgeGroup = ({ children, spaceAfter = "medium", ...props }: Props): React.Node => {
+const ItineraryBadgeList = ({ children, spaceAfter = "medium", ...props }: Props): React.Node => {
   const { calculatedWidth: offset } = useWidth();
   return (
     <StyledWrapper offset={offset} spaceAfter={spaceAfter}>
@@ -32,4 +32,4 @@ const ItineraryBadgeGroup = ({ children, spaceAfter = "medium", ...props }: Prop
   );
 };
 
-export default ItineraryBadgeGroup;
+export default ItineraryBadgeList;
