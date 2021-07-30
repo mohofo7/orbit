@@ -344,14 +344,10 @@ const InputField: React.AbstractComponent<Props, HTMLInputElement> = React.forwa
     dataAttrs,
   } = props;
 
-  const forID = useRandomId("inputFieldID") || id;
+  const forID = useRandomId("inputFieldID");
 
   return (
-    <Field
-      component={label ? "label" : "div"}
-      spaceAfter={spaceAfter}
-      htmlFor={label ? forID : undefined}
-    >
+    <Field component={label ? "label" : "div"} spaceAfter={spaceAfter} htmlFor={id || forID}>
       {label && !inlineLabel && <FormLabel label={label} isFilled={!!value} required={required} />}
       <InputContainer size={size} disabled={disabled} error={error}>
         {prefix && <Prefix size={size}>{prefix}</Prefix>}
@@ -389,7 +385,7 @@ const InputField: React.AbstractComponent<Props, HTMLInputElement> = React.forwa
           readOnly={readOnly}
           autoComplete={autoComplete}
           autoFocus={autoFocus}
-          id={forID}
+          id={id || forID}
           inputMode={inputMode}
           required={required}
           dataAttrs={dataAttrs}
