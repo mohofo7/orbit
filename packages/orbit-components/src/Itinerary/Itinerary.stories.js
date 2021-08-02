@@ -27,7 +27,7 @@ const BadgeGroup = () => {
   const carrier = [{ code: "FR", name: "Ryanair" }];
 
   return (
-    <Stack inline align="center" spacing="medium">
+    <Stack inline align="center" spacing="XXSmall">
       <CarrierLogo size="medium" carriers={carrier} />
       <Badge icon={<Airplane />} />
       <Badge>1 stop</Badge>
