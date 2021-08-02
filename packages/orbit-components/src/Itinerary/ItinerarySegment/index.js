@@ -17,9 +17,12 @@ const StyledWrapper = styled.div`
     box-shadow: ${!noElevation && theme.orbit.boxShadowFixed};
     border-radius: ${theme.orbit.borderRadiusLarge};
     padding: ${theme.orbit.spaceSmall} 0;
+    &:hover {
+      box-shadow: ${theme.orbit.boxShadowActionActive};
+    }
     &:focus {
       outline: none;
-      box-shadow: ${theme.orbit.boxShadowButtonFocus};
+      box-shadow: ${theme.orbit.boxShadowActionActive};
     }
   `}
 `;
@@ -40,7 +43,7 @@ const ItinerarySegment = ({
   const [opened, setOpened] = React.useState(false);
 
   const parts = (
-    <Stack direction="column">
+    <Stack direction="column" spacing="small">
       {React.Children.map(children, (el, i) => {
         return (
           <ItinerarySegmentProvider

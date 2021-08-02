@@ -114,7 +114,7 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
     <>
       <StyledWrapper>
         <StyledInnerWrapper noElevation={noElevation}>
-          <Stack align="center" spacing="small" spaceAfter="small">
+          <Stack align="center" spacing="small" spaceAfter={opened ? "small" : undefined}>
             <StyledDuration minWidth={calculatedWidth || 60}>
               <Text weight="bold">{duration}</Text>
             </StyledDuration>
