@@ -7,6 +7,7 @@ import Stack from "../../Stack";
 import getSpacingToken from "../../common/getSpacingToken";
 import defaultTheme from "../../defaultTheme";
 import handleKeyDown from "../../utils/handleKeyDown";
+import { StyledChevron } from "./ItinerarySegmentDetail";
 
 import type { Props } from ".";
 
@@ -19,6 +20,11 @@ const StyledWrapper = styled.div`
     padding: ${theme.orbit.spaceSmall} 0;
     &:hover {
       box-shadow: ${theme.orbit.boxShadowActionActive};
+      ${StyledChevron} {
+        background: ${theme.orbit.paletteCloudNormal};
+        border-radius: ${theme.orbit.borderRadiusCircle};
+        transition: background ${theme.orbit.durationFast} ease-in-out;
+      }
     }
     &:focus {
       outline: none;

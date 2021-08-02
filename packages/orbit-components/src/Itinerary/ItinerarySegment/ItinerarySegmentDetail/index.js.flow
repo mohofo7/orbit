@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import type { StyledComponent } from "styled-components";
 
 type Detail = {|
   +icon: React.Node,
@@ -20,3 +21,4 @@ export type Props = {|
 |};
 
 declare export default React.ComponentType<Props>;
+declare export var StyledChevron: StyledComponent<any, any, HTMLDivElement>;

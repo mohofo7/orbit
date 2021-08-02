@@ -40,6 +40,18 @@ const StyledSummary = styled.div`
   align-items: center;
 `;
 
+export const StyledChevron: any = styled.div`
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+`;
+
+// $FlowFixMe: https://github.com/flow-typed/flow-typed/issues/3653#issuecomment-568539198
+StyledChevron.defaultProps = {
+  theme: themeDefault,
+};
+
 const StyledDuration = styled.div`
   ${({ minWidth }) => css`
     display: flex;
@@ -122,7 +134,7 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
             <Stack justify="center" shrink direction="column" spacing={opened ? "medium" : "none"}>
               <StyledSummary>{summary}</StyledSummary>
             </Stack>
-            {opened ? <ChevronUp /> : <ChevronDown />}
+            <StyledChevron>{opened ? <ChevronUp /> : <ChevronDown />}</StyledChevron>
           </Stack>
         </StyledInnerWrapper>
         <Slide maxHeight={height} expanded={opened} id={slideID} ariaLabelledBy={slideID}>

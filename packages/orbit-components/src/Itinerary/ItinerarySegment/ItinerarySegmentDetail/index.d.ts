@@ -3,7 +3,6 @@ import React from "react";
 /** DOCS:
   ItineraryPartDetail serves as connection between two ItineraryPartPlace components (segments)
 */
-
 interface Detail {
   readonly icon: React.ReactNode;
   readonly text: React.ReactNode;
