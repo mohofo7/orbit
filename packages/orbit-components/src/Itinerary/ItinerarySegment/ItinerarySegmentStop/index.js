@@ -49,7 +49,7 @@ const ItinerarySegmentStop = ({
     <StyledWrapper hidden={hidden}>
       <Stack inline align="center" spacing="small">
         <StyledDate minWidth={calculatedWidth || minWidth} ref={ref}>
-          <Stack flex direction="column" spacing="XSmall" align="end">
+          <Stack flex direction="column" spacing="XXXSmall" align="end">
             <Text weight="bold">{time}</Text>
             <Text type="secondary" size="small" align="right">
               {date}
@@ -57,7 +57,7 @@ const ItinerarySegmentStop = ({
           </Stack>
         </StyledDate>
         <ItineraryIcon warning={warning} />
-        <Stack spacing="XSmall">
+        <Stack spacing="XXXSmall">
           <Text weight="bold">{city}</Text>
           <Text type="secondary" size="small">
             {station}
