@@ -11,6 +11,7 @@ import defaultTheme from "../../defaultTheme";
 type Props = {|
   isDetails?: boolean,
   warning?: boolean,
+  children?: React.Node,
 |};
 
 const lineMixin = css`
@@ -55,14 +56,15 @@ IconStyled.defaultProps = {
   theme: defaultTheme,
 };
 
-const Icon = ({ warning, isDetails }) => {
+const Icon = ({ warning, isDetails, icon }) => {
+  if (icon) return icon;
   if (warning) return <AlertCircle size="small" color="warning" />;
   if (isDetails) return <AirplaneDown size="small" />;
 
   return <Circle size="small" color="secondary" />;
 };
 
-const ItineraryIcon = ({ isDetails, warning }: Props): React.Node => {
+const ItineraryIcon = ({ isDetails, warning, children }: Props): React.Node => {
   const { index, last, isNextHidden, count } = usePart();
 
   return (
@@ -73,7 +75,7 @@ const ItineraryIcon = ({ isDetails, warning }: Props): React.Node => {
       isNextHidden={isNextHidden}
       count={count}
     >
-      <Icon warning={warning} isDetails={isDetails} />
+      <Icon warning={warning} isDetails={isDetails} icon={children} />
     </IconStyled>
   );
 };

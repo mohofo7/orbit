@@ -115,7 +115,7 @@ StyledExpandableContent.defaultProps = {
   theme: themeDefault,
 };
 
-const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.Node => {
+const ItinerarySegmentDetail = ({ duration, summary, content, icon }: Props): React.Node => {
   const { opened, toggleOpened, noElevation } = usePart();
   const { calculatedWidth } = useWidth();
   const [{ height }, ref] = useBoundingRect({ height: 0 });
@@ -130,7 +130,7 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
             <StyledDuration minWidth={calculatedWidth || 60}>
               <Text weight="bold">{duration}</Text>
             </StyledDuration>
-            <ItineraryIcon isDetails />
+            <ItineraryIcon isDetails>{icon}</ItineraryIcon>
             <Stack justify="center" shrink direction="column" spacing={opened ? "medium" : "none"}>
               <StyledSummary>{summary}</StyledSummary>
             </Stack>
@@ -151,11 +151,11 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
                         </Text>
                       </StyledHeadingOffset>
                       <Stack direction="column" spacing="XSmall" spaceAfter="medium">
-                        {items.map(({ icon, name, value }, index) => {
+                        {items.map(({ icon: itemIcon, name, value }, index) => {
                           return (
                             // eslint-disable-next-line react/no-array-index-key
                             <Stack flex grow={false} align="center" key={index}>
-                              <StyledIcon>{icon}</StyledIcon>
+                              <StyledIcon>{itemIcon}</StyledIcon>
                               <Stack inline justify="between">
                                 <Text>{name}</Text>
                                 <Text weight="bold">{value}</Text>

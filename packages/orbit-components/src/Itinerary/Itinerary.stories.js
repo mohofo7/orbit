@@ -1,7 +1,8 @@
 // @flow
 import * as React from "react";
-import { text, boolean } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 
+import * as Icons from "../icons";
 import Wifi from "../icons/Wifi";
 import PowerPlug from "../icons/PowerPlug";
 import Entertainment from "../icons/Entertainment";
@@ -214,6 +215,9 @@ export const Detail = (): React.Node => {
 };
 
 export const Default = (): React.Node => {
+  const source = select("icon", Object.keys(Icons), "Airplane");
+  const Icon = Icons[source];
+
   return (
     <Itinerary>
       <ItinerarySegment spaceAfter="medium">
@@ -223,7 +227,12 @@ export const Default = (): React.Node => {
           date="Fri, 19.10"
           time="14:05"
         />
-        <ItinerarySegmentDetail duration="2h 30m" summary={<BadgeGroup />} content={content} />
+        <ItinerarySegmentDetail
+          icon={<Icon size="small" />}
+          duration="2h 30m"
+          summary={<BadgeGroup />}
+          content={content}
+        />
         <ItinerarySegmentStop
           city="Prague"
           station="Václav Havel Airport Prague (PRG)"
