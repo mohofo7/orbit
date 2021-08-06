@@ -141,24 +141,24 @@ const ItinerarySegmentDetail = ({ duration, summary, content }: Props): React.No
           <StyledExpandable ref={ref} onClick={toggleOpened}>
             <StyledExpandableContent offset={calculatedWidth}>
               {content &&
-                content.map(({ heading, items }, idx) => {
+                content.map(({ title, items }, idx) => {
                   return (
                     // eslint-disable-next-line react/no-array-index-key
                     <React.Fragment key={idx}>
                       <StyledHeadingOffset>
                         <Text weight="bold" spaceAfter="medium">
-                          {heading}
+                          {title}
                         </Text>
                       </StyledHeadingOffset>
                       <Stack direction="column" spacing="XSmall" spaceAfter="medium">
-                        {items.map(({ icon, text, additional }, index) => {
+                        {items.map(({ icon, name, value }, index) => {
                           return (
                             // eslint-disable-next-line react/no-array-index-key
                             <Stack flex grow={false} align="center" key={index}>
                               <StyledIcon>{icon}</StyledIcon>
                               <Stack inline justify="between">
-                                <Text>{text}</Text>
-                                <Text weight="bold">{additional}</Text>
+                                <Text>{name}</Text>
+                                <Text weight="bold">{value}</Text>
                               </Stack>
                             </Stack>
                           );

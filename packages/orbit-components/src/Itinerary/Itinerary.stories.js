@@ -37,52 +37,52 @@ const BadgeGroup = () => {
 
 const content = [
   {
-    heading: "Connection Info",
+    title: "Connection Info",
     items: [
       {
         icon: <Airplane size="small" />,
-        text: "Carrier",
-        additional: "Ryanair",
+        name: "Carrier",
+        value: "Ryanair",
       },
       {
         icon: <Info size="small" />,
-        text: "Connection number",
-        additional: "RA 8345",
+        name: "Connection number",
+        value: "RA 8345",
       },
     ],
   },
   {
-    heading: "Seating Info",
+    title: "Seating Info",
     items: [
       {
         icon: <Seat size="small" />,
-        text: "Seat pitch",
-        additional: "76cm",
+        name: "Seat pitch",
+        value: "76cm",
       },
       {
         icon: <Seat size="small" />,
-        text: "Seat width",
-        additional: "43cm",
+        name: "Seat width",
+        value: "43cm",
       },
       {
         icon: <Seat size="small" />,
-        text: "Seat recline",
-        additional: "7cm",
+        name: "Seat recline",
+        value: "7cm",
       },
       {
         icon: <Entertainment size="small" />,
-        text: "Audio & video on demand",
-        additional: "No",
+        name: "Audio & video on demand",
+        value: "No",
       },
       {
         icon: <PowerPlug size="small" />,
-        text: "In-seat power",
-        additional: "No",
+        name: "In-seat power",
+        value: "No",
       },
       {
         icon: <Wifi size="small" />,
-        text: "Wi-Fi on board",
-        additional: "No",
+        name: "Wi-Fi on board",
+        value: "No",
       },
     ],
   },

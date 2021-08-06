@@ -5,11 +5,11 @@ import React from "react";
 */
 interface Detail {
   readonly icon: React.ReactNode;
-  readonly text: React.ReactNode;
-  readonly additional: React.ReactNode;
+  readonly name: React.ReactNode;
+  readonly value: React.ReactNode;
 }
 interface ContentItem {
-  readonly heading: React.ReactNode;
+  readonly title: React.ReactNode;
   readonly items: Detail[];
 }
 export interface Props {

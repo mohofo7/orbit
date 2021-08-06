@@ -4,12 +4,12 @@ import type { StyledComponent } from "styled-components";
 
 type Detail = {|
   +icon: React.Node,
-  +text: React.Node,
-  +additional: React.Node,
+  +name: React.Node,
+  +value: React.Node,
 |};
 
 type ContentItem = {|
-  +heading: React.Node,
+  +title: React.Node,
   +items: Detail[],
 |};
 
